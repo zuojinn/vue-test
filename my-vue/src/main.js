@@ -5,9 +5,9 @@ import App from './App'
 import router from './router'
 
 import './style/public.css'
+import store from './store'
 
 Vue.config.productionTip = false
-import store from './store'
 
 /* eslint-disable no-new */
 new Vue({

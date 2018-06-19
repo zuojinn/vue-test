@@ -9,10 +9,10 @@ import SelectStore from './SelectStore'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    modules: {
-        MenuStore,
-        AuthorStore,
-        PointStore,
-        SelectStore
-    }
+  modules: {
+    MenuStore,
+    AuthorStore,
+    PointStore,
+    SelectStore
+  }
 })
