@@ -5,7 +5,7 @@
       <app-head></app-head>
       <app-nav></app-nav>
       <!--keep-alive 切换路不会触发mounted-->
-      <div style="height:764px;overflow-y:auto"><keep-alive><router-view></router-view></keep-alive></div>
+      <div style="height:764px;overflow-y:auto;background:#fff"><keep-alive><router-view></router-view></keep-alive></div>
       <app-foot></app-foot>
     </div>
   </div>
@@ -36,7 +36,7 @@ export default {
   position: relative;
   z-index: 99;
   transition: all 0.5s;
-  margin-right:120px;
+  /*margin-right:120px;*/
 }
 .toggle{
   transform: translateX(-120px);

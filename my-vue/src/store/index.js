@@ -5,6 +5,7 @@ import MenuStore from './MenuStore'
 import AuthorStore from './AuthorStore'
 import PointStore from './PointStore'
 import SelectStore from './SelectStore'
+import HeadStore from './HeadStore'
 
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     MenuStore,
     AuthorStore,
     PointStore,
-    SelectStore
+    SelectStore,
+    HeadStore
   }
 })

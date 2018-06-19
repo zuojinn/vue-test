@@ -1,7 +1,7 @@
 <template>
     <header class="head">
-        <!-- <a href="javascript: void(0)"><img class="vNews"  src="../../assets/head/logo.png"/></a>
-         <svg class="icon searchBtn" @click='openSearch' aria-hidden="true">
+        <a href="javascript: void(0)"><img class="vNews"  src="../../assets/head/logo.png"/></a>
+        <svg class="icon searchBtn" @click='openSearch' aria-hidden="true">
             <use xlink:href="#icon-sousuo"></use>
         </svg>
         <div class="searchPage">
@@ -26,25 +26,33 @@
                     </li>
                 </ul>
             </div>
-        </div> -->
+        </div>
+        <div class="aside" @click="toggleMenu">
+          <div v-for="i in 3" :key='i' class="line"></div>
+        </div>
     </header>
 </template>
 
 <script>
-//     import {mapState} from 'vuex'
-//     export default {
-//         name: 'apphead',
-//         data () {
-//             return {
-//                 searchContent: ''
-//             }
-//         },
-//         computed: {
-//             ...mapState({
-//                 searchNews: state => state.SelectStore.searchNews
-//             })
-//         }
-//     }
+import {mapState, mapMutations} from 'vuex'
+export default {
+  name: 'apphead',
+  data () {
+    return {
+      searchContent: ''
+    }
+  },
+  computed: {
+    ...mapState({
+      searchNews: state => state.SelectStore.searchNews
+    })
+  },
+  methods: {
+    ...mapMutations([
+      'toggleMenu', 'openSearch', 'closeSearch'
+    ])
+  }
+}
 </script>
 <style>
 .head{

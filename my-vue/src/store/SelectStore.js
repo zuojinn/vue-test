@@ -1,6 +1,7 @@
+// import $ from 'webpack-zepto'
 export default {
   state: {
-    banners: [{
+    newsDate: [{
       id: 1,
       title: 'ceshi1'
     }, {
@@ -9,6 +10,16 @@ export default {
     }, {
       id: 3,
       title: 'ceshi3'
+    }],
+    banners: [{
+      channelId: 1,
+      src: 'ceshi1'
+    }, {
+      channelId: 2,
+      src: 'ceshi2'
+    }, {
+      channelId: 3,
+      src: 'ceshi3'
     }]
   }
 }
