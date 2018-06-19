@@ -8,26 +8,26 @@ import Author from '@/components/Author'
 Vue.use(Router)
 
 export default new Router({
-    linkActiveClass:'active',
+  linkActiveClass: 'active',
   routes: [
     {
       path: '/',
       name: 'author',
       component: Author
-    },{
-        path:'/point',
-        component:Point
-    },{
-        path:'/select',
-        component:Select
+    }, {
+      path: '/point',
+      component: Point
+    }, {
+      path: '/select',
+      component: Select
     },
     {
-        path:'/author',
-        component:Author
+      path: '/author',
+      component: Author
     },
     {
-        path:'/helloWorld',
-        component:HelloWorld
+      path: '/helloWorld',
+      component: HelloWorld
     }
   ]
 })

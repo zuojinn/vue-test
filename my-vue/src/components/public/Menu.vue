@@ -6,17 +6,19 @@
         </ul>
     </section>
 </template>
+
 <script>
-    import {mapState} from 'vuex'
-    export default {
-        computed: {
-            ...mapState({
-                userName: state => state.MenuStore.userName,
-                menus: state => state.MenuStore.menus
-            })
-        }
-    }
+import {mapState} from 'vuex'
+export default {
+  computed: {
+    ...mapState({
+      userName: state => state.MenuStore.userName,
+      menus: state => state.MenuStore.menus
+    })
+  }
+}
 </script>
+
 <style>
 .menus{
     position: fixed;
@@ -62,4 +64,3 @@
     background-color: #3E90E3;
 }
 </style>
-

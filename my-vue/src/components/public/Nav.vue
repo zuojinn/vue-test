@@ -6,31 +6,31 @@
     </section>
 </template>
 <script>
-    export default {
-        data (){
-            return {
-                menus:[
-                    {
-                        text: '精选',
-                        path: '/select'
-                    },
-                    {
-                        text: '话题',
-                        path: '/point'
-                    },
-                    {
-                        text: '作者',
-                        path: '/author'
-                    }
-                ]
-            }
+export default {
+  data () {
+    return {
+      menus: [
+        {
+          text: '精选',
+          path: '/select'
         },
-        methods: {
-            setPath(path){
-                return path
-            }
+        {
+          text: '话题',
+          path: '/point'
+        },
+        {
+          text: '作者',
+          path: '/author'
         }
+      ]
     }
+  },
+  methods: {
+    setPath (path) {
+      return path
+    }
+  }
+}
 </script>
 <style>
 .nav{

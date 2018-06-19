@@ -22,9 +22,8 @@
             padding-right:5%;
             border-right:1px solid #666;
     }
-    
     .foot .email{
-        font-size:13px; 
+        font-size:13px;
     }
 
     .foot .email p{

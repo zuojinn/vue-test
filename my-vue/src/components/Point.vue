@@ -67,7 +67,7 @@ export default {
 }
 .point .question .mask .result{
     height: 100px;
-    width: 80%;  
+    width: 80%;
 }
 
 .point .question .mask .result p{
@@ -77,12 +77,11 @@ export default {
 .point .question .mask .result progress {
     width: 100%;
     background-color:#005588;
-    color: #E94C3D; 
+    color: #E94C3D;
 }
 .point .question .mask .result progress::-moz-progress-bar { background: #E94C3D; }
 .point .question .mask .result progress::-webkit-progress-bar { background: #005588; }
 .point .question .mask .result progress::-webkit-progress-value  { background: #E94C3D; }
-
 
 .point .question .mask .join{
     color: #E94C3D;
@@ -109,7 +108,7 @@ export default {
     height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.6);
-    position: relative;       
+    position: relative;
 }
 .point .prev .list .mask h2{
     font-size: 20px;

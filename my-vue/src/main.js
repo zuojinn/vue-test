@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-//import './style/public.css'
+import './style/public.css'
 
 Vue.config.productionTip = false
 import store from './store'

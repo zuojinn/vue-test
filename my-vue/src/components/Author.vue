@@ -69,7 +69,7 @@ export default {
     background: #262627;
     padding: 10px 0;
     justify-content: space-around;
-    align-items: center;         
+    align-items: center;
 }
 .author .banner .item .msg img{
     height: 100px;
@@ -129,7 +129,7 @@ export default {
     margin: 0 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;     
+    justify-content: space-between;
 }
 
 .author .more .other .authorMsg .intro .slogan{

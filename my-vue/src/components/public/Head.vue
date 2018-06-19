@@ -29,7 +29,8 @@
         </div> -->
     </header>
 </template>
-// <script>
+
+<script>
 //     import {mapState} from 'vuex'
 //     export default {
 //         name: 'apphead',
@@ -44,7 +45,7 @@
 //             })
 //         }
 //     }
-// </script>
+</script>
 <style>
 .head{
   height: 60px;
@@ -105,7 +106,6 @@
 .head .closeMenu .line:last-child{
     transform: rotate(-45deg);
 }
-
 
 .head  .searchPage{
     display: none;
@@ -195,4 +195,3 @@
     background-color: #EEEEEE;
 }
 </style>
-
