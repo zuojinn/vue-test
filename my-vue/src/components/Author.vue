@@ -1,11 +1,11 @@
 <template>
   <section class="author">
-    <!-- <button class="goHome" @click='goHome'>Home</button> -->
+    <button class="goHome" @click='goHome'>Home</button>
     <!--<a v-link="select">select</a>-->
     <div class="banner">
       <div v-for='(a, index) in author' :key='index' class="item">
         <div class="msg">
-          <!-- <img :src="setAutherSrc(a.src)"/> -->
+          <img :src="setAutherSrc(a.src)"/>
           <p class="name">{{a.name}}</p>
           <p class="slogan">{{a.slogan}}</p>
         </div>
@@ -16,7 +16,7 @@
     <section class="more">
       <div v-for='(o, index) in other' :key='index' class="other">
         <div class="authorMsg">
-          <!-- <img :src="setOtherSrc(o.src)"/> -->
+          <img :src="setOtherSrc(o.src)"/>
           <div class="intro">
             <p class="name">{{o.name}}</p>
             <p class="slogan">{{o.slogan}}</p>
@@ -38,8 +38,39 @@ export default {
   computed: {
     ...mapState({
       author: state => state.AuthorStore.author,
-      other: state => state.AuthorStore.other
+      other: state => state.AuthorStore.other,
+      pathName: state => state.SelectStore.pathName
     })
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  methods: {
+    setAutherSrc (src) {
+      return src
+    },
+    setOtherSrc (src) {
+      return src
+    },
+    fetchData (to, from) {
+      location.hash = 'select'
+      console.log(this.$route)
+    },
+    goHome () {
+      if (history.length) {
+        this.$router.go(parseFloat(-this.$store.state.historyLength) + 1)
+      }
+    }
+  },
+  beforeRouteEnter (to, from, next) {
+    next()
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log(9)
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    next()
   }
 }
 </script>

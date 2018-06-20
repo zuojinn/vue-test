@@ -1,14 +1,14 @@
 <template>
-    <section class="menus">
-        <p class="user" title="">{{userName}}</p>
-        <ul class="aside">
-            <li v-for='(m, index) in menus' :key='index'><a href="">{{m.text}}</a></li>
-        </ul>
-    </section>
+  <section class="menus">
+    <p class="user" title="">{{userName}}</p>
+    <ul class="aside">
+      <li v-for='(m, index) in menus' :key='index'><a href="">{{m.text}}</a></li>
+    </ul>
+  </section>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState({

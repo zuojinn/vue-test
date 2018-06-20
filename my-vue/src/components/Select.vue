@@ -1,23 +1,45 @@
 <template>
   <div class="select">
     <div class="banner">
-      <swiper :options="swiperOption" ref="mySwiper">
-        <swiper-slide v-for="img in banners" :key="img.channelId">
+      <swiper :options="swiperOption"  ref="mySwiper">
+        <!-- 这部分放你要渲染的那些内容 -->
+        <swiper-slide v-for='img in banners' :key="img.channelId">
           <img :src="setBannerSrc(img)"/>
         </swiper-slide>
+        <!-- 这是轮播的小圆点 -->
         <div v-show='loadBtn' class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
-      <section class="news">
+    <!--加载动画-->
+    <div class="spinner" v-show='loadAnimation'></div>
+    <transition name='fade' mode='out-in'>
+      <svg v-show='rocket' class="icon goTop" @click='goPageTop' aria-hidden="true">
+        <use xlink:href="#icon-0028"></use>
+      </svg>
+    </transition>
+    <section class="news">
+      <div v-if='requestStatus'>
         <div v-for='(news, index) in newsDate' :key='index' :id="news.id">
-          <h4>{{news.id}}</h4>
+          <a href="javascript: void(0)" class="new" :key='news.channelId'>
+            <img v-lazy='news.imageurls[0].url' :src="setNewSrc(news.imageurls[0].url)"/>
+            <div class="intro">
+              <h4>{{news.title}}</h4>
+              <p><span>{{news.source}}</span> | <span>{{news.pubDate}}</span></p>
+            </div>
+          </a>
         </div>
-      </section>
+        <button class="loadMore" @click='loadMoreBtn' v-show='loadBtn'>点击加载更多</button>
+      </div>
+      <div class="fail" v-else>/(ㄒoㄒ)/~~， 请求到数据失败!</div>
+    </section>
   </div>
 </template>
+
 <script>
-import {swiper, swiperSlide} from 'vue-awesome-swiper'
-import {mapState} from 'vuex'
+// 导入轮播图组件
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+// 导入vuex
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   data () {
     return {
@@ -30,6 +52,7 @@ export default {
         paginationClickable: true,
         spaceBetween: 30,
         onSlideChangeEnd: swiper => {
+          // 这个位置放swiper的回调方法
           this.page = swiper.realIndex + 1
           this.index = swiper.realIndex
         }
@@ -37,14 +60,66 @@ export default {
     }
   },
   computed: {
+    /**
+     * @desc 从store中引入需要的数据
+     */
     ...mapState({
+      page: state => state.SelectStore.page,
+      newsUrl: state => state.SelectStore.newsUrl,
+      banners: state => state.SelectStore.banners,
       newsDate: state => state.SelectStore.newsDate,
-      banners: state => state.SelectStore.banners
+      loadBtn: state => state.SelectStore.loadBtn,
+      pathName: state => state.SelectStore.pathName,
+      loadAnimation: state => state.SelectStore.loadAnimation
     })
   },
+  created: function () {
+    this.askNews(this.newsUrl + this.page) // 第一次加载请求数据
+    let _this = this
+    /**
+     * @desc 判断是否显示回到顶部的火箭图标
+     */
+    window.onscroll = function () {
+      let leaveTop = document.body.scrollTop
+      if (leaveTop > 600) {
+        _this.rocket = true
+      } else {
+        _this.rocket = false
+      }
+    }
+    console.log(this.$store.state.slogan)
+  },
   methods: {
+    ...mapActions([
+      'askNews', 'setSrc'
+    ]),
+    ...mapMutations([
+      'loadMore'
+    ]),
+    /**
+     * @desc 设置轮播图地址
+     */
     setBannerSrc (src) {
       return src
+    },
+    /**
+     * @desc 设置新闻图片地址
+     */
+    setNewSrc (url) {
+      return url
+    },
+    /**
+     * @desc 加载更多
+     */
+    loadMoreBtn () {
+      this.loadMore()
+      this.askNews(this.newsUrl + this.page)
+    },
+    /**
+     * @desc 回到顶部
+     */
+    goPageTop () {
+      document.body.scrollTop = 0
     }
   },
   components: {

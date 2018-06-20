@@ -1,32 +1,31 @@
 <template>
-    <section class="nav">
-        <div class="nav" v-for='(m,index) in menus' :key='index'>
-            <router-link :to='setPath(m.path)'><span>{{m.text}}</span></router-link>
-        </div>
-    </section>
+  <section class="nav">
+    <!--v-for遍历路由-->
+    <div class="nav" v-for='(m, index) in menus' :key='index'>
+      <router-link :to='setPaht(m.path)'><span>{{m.text}}</span></router-link>
+    </div>
+  </section>
 </template>
+
 <script>
 export default {
   data () {
     return {
-      menus: [
-        {
-          text: '精选',
-          path: '/select'
-        },
-        {
-          text: '话题',
-          path: '/point'
-        },
-        {
-          text: '作者',
-          path: '/author'
-        }
-      ]
+      // 路由参数
+      menus: [{
+        text: '精选',
+        path: '/select'
+      }, {
+        text: '话题',
+        path: '/point'
+      }, {
+        text: '作者',
+        path: '/author'
+      }]
     }
   },
   methods: {
-    setPath (path) {
+    setPaht (path) {
       return path
     }
   }

@@ -2,7 +2,7 @@
   <footer class="foot">
     <img src="../../assets/head/logo.png">
     <div class="email">
-      <p>联系我：wt_niu@163.com</p>
+      <p>联系我：JIN_ZUO@163.com</p>
     </div>
   </footer>
 </template>
